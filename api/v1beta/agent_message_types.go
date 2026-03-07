@@ -2,6 +2,13 @@ package v1beta
 
 import metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
+// +kubebuilder:object:root=true
+// +kubebuilder:subresource:status
+// +kubebuilder:resource:scope=Namespaced,shortName=amsg
+// +kubebuilder:printcolumn:name="From",type="string",JSONPath=".spec.from"
+// +kubebuilder:printcolumn:name="To",type="string",JSONPath=".spec.to"
+// +kubebuilder:printcolumn:name="Delivered",type="boolean",JSONPath=".status.delivered"
+// +kubebuilder:printcolumn:name="Age",type="date",JSONPath=".metadata.creationTimestamp"
 type AgentMessage struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
