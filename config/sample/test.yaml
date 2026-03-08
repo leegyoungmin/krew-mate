@@ -1,0 +1,25 @@
+apiVersion: krewmate.io/v1beta
+kind: AgentTeam
+metadata:
+  name: my-first-team
+  namespace: default
+spec:
+  goal: "레포지토리 코드 리뷰해줘"
+  roles:
+    - name: team-lead
+      type: orchestrator
+      llm:
+        provider: anthropic
+        model: claude-opus-4-6
+        credentialRef:
+          secretName: anthropic-creds
+          apiKeyField: key
+    - name: reviewer
+      type: worker
+      replicas: 1
+      llm:
+        provider: anthropic
+        model: claude-opus-4-6
+        credentialRef:
+          secretName: anthropic-creds
+          apiKeyField: key

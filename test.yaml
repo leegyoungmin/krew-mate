@@ -1,8 +1,0 @@
-apiVersion: agents.krewmate.io/v1beta
-kind: AgentTeam
-metadata:
-  name: my-first-team
-  namespace: default
-spec:
-  goal: "레포지토리 코드 리뷰해줘"
-  model: "claude-opus-4-6"
